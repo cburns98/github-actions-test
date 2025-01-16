@@ -1,0 +1,17 @@
+name: Build, Test and Deploy Application
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v4
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: "20.x"
+    - run: npm install
+    - run: npm run build
